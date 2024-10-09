@@ -29,6 +29,21 @@ numberButtons.forEach((button) => {
     })
 })
 
+const clearButton = document.querySelector('.clear');
+
+clearButton.addEventListener('click', () => {
+        console.log('click');
+        const screen=document.querySelector('.screen');
+        screen.textContent='0';
+})
+
+const equalButton = document.querySelector('.equals');
+
+equalButton.addEventListener('click', () => {
+        console.log('CALCULATE');
+        const screen=document.querySelector('.screen');
+        screen.textContent='0';
+})
 
 
 

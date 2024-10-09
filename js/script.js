@@ -73,8 +73,13 @@ equalButton.addEventListener('click', () => {
         currentNumber='';
         result=operate(Number(firstNumber),Number(secondNumber), operator);
         displayScreen(result);
-        firstNumber = result;
-        secondNumber = '';
+        if(result === 'stop'){
+            firstNumber = '';
+            secondNumber = '';
+        }else{
+            firstNumber = result;
+            secondNumber = '';
+        }
 })
 
 
@@ -91,7 +96,12 @@ function operate(a,b, sign){
             result = multiply(a,b);
             break;
         case '/':
+            if(b==0){
+                console.log('Do not divide by 0')
+                result = 'stop';
+            }else{
             result = divide(a,b);
+            }
             break;
     }
     return result;

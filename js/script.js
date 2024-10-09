@@ -72,8 +72,9 @@ equalButton.addEventListener('click', () => {
         memoryNumber(Number(currentNumber));
         currentNumber='';
         result=operate(Number(firstNumber),Number(secondNumber), operator);
-        console.log(result)
         displayScreen(result);
+        firstNumber = result;
+        secondNumber = '';
 })
 
 
@@ -93,8 +94,5 @@ function operate(a,b, sign){
             result = divide(a,b);
             break;
     }
-    // firstNumber = result;
-    // secondNumber = '';
-    // currentNumber = '';
     return result;
 }

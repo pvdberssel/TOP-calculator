@@ -61,7 +61,9 @@ const operatorButton = document.querySelectorAll('.operator');
 const clearButton = document.querySelector('.clear');
 
 clearButton.addEventListener('click', () => {
-        console.log('click');
+        firstNumber = '';
+        secondNumber = '';
+        currentNumber= '';
         displayScreen('0');
 })
 

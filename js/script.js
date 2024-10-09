@@ -18,6 +18,19 @@ let firstNumber;
 let secondNumber;
 let operator;
 
+
+const numberButtons = document.querySelectorAll('.calculator-number');
+
+numberButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        const screen=document.querySelector('.screen');
+        screen.textContent=button.textContent;
+    })
+})
+
+
+
+
 function operate(firstNumber,secondNumber, operator){
     switch(operator){
         case '+':

@@ -3,6 +3,8 @@
     height:120px;
     width: 400px;
     margin:10px;
+    text-align: right;
+    font-size:100px;
 }
 
 body {

@@ -75,7 +75,7 @@ equalButton.addEventListener('click', () => {
         currentNumber='';
         result=operate(Number(firstNumber),Number(secondNumber), operator);
         displayScreen(result);
-        if(result === 'stop'){
+        if(result === 'ʕノ•ᴥ•ʔノ ︵ ┻━┻'){
             firstNumber = '';
             secondNumber = '';
         }else{
@@ -99,8 +99,7 @@ function operate(a,b, sign){
             break;
         case '/':
             if(b==0){
-                console.log('Do not divide by 0')
-                result = 'stop';
+                result = 'ʕノ•ᴥ•ʔノ ︵ ┻━┻';
             }else{
             result = divide(a,b);
             }

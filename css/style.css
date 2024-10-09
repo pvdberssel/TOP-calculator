@@ -47,8 +47,10 @@ button {
 }
 .operator{
     background-color: #00ADB5;
-    
-   
+}
+
+.equals{
+    background-color:coral;
 }
 
 .special{

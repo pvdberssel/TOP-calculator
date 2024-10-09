@@ -19,30 +19,42 @@ let secondNumber;
 let operator;
 
 
-const numberButtons = document.querySelectorAll('.calculator-number');
 
+
+function displayScreen(screenValue){
+    const screen=document.querySelector('.screen');
+    screen.textContent=screenValue;
+}
+
+const numberButtons = document.querySelectorAll('.calculator-number');
 numberButtons.forEach((button) => {
     button.addEventListener('click', () => {
         console.log('click');
-        const screen=document.querySelector('.screen');
-        screen.textContent=button.textContent;
+        displayScreen(button.textContent);
     })
 })
+
+const operatorButton = document.querySelectorAll('.operator');
+    operatorButton.forEach((button) => {
+        button.addEventListener('click', () => {
+            console.log('operator')
+            displayScreen(button.textContent);
+        })
+    })
+
 
 const clearButton = document.querySelector('.clear');
 
 clearButton.addEventListener('click', () => {
         console.log('click');
-        const screen=document.querySelector('.screen');
-        screen.textContent='0';
+        displayScreen('0');
 })
 
 const equalButton = document.querySelector('.equals');
 
 equalButton.addEventListener('click', () => {
         console.log('CALCULATE');
-        const screen=document.querySelector('.screen');
-        screen.textContent='0';
+        displayScreen('0');
 })
 
 

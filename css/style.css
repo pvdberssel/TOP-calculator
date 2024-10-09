@@ -41,6 +41,10 @@ button {
     font-family: 'monospace';
 }
 
+.calculator-number:hover{
+    background-color: #c7c7c7;
+}
+
 .large-button {
     width: 200px;
     flex: 2;
@@ -49,11 +53,24 @@ button {
     background-color: #00ADB5;
 }
 
+.operator:hover{
+    background-color: #58ced6;
+}
+
+
 .equals{
     background-color:coral;
+}
+
+.equals:hover{
+    background-color:rgb(255, 159, 125);
 }
 
 .special{
     background-color: #393E46;
     color:white
+}
+
+.special:hover{
+    background-color: #5d6570;
 }

@@ -1,4 +1,5 @@
 function add(a,b){
+    console.log('adding')
     return a+b;
 }
 
@@ -14,9 +15,12 @@ function divide(a,b){
     return a/b;
 }
 
-let firstNumber;
-let secondNumber;
+let firstNumber = '';
+let secondNumber = '';
 let operator;
+let result;
+
+let currentNumber='';
 
 
 
@@ -29,15 +33,26 @@ function displayScreen(screenValue){
 const numberButtons = document.querySelectorAll('.calculator-number');
 numberButtons.forEach((button) => {
     button.addEventListener('click', () => {
-        console.log('click');
-        displayScreen(button.textContent);
+        currentNumber = currentNumber.concat(button.textContent);
+        displayScreen(currentNumber);
+        
     })
 })
+
+function memoryNumber(number){
+    if(firstNumber == ''){
+        firstNumber = number;
+    }else{
+        secondNumber = number;
+    }
+}
 
 const operatorButton = document.querySelectorAll('.operator');
     operatorButton.forEach((button) => {
         button.addEventListener('click', () => {
-            console.log('operator')
+            memoryNumber(Number(currentNumber));
+            currentNumber='';
+            operator = button.textContent;
             displayScreen(button.textContent);
         })
     })
@@ -53,25 +68,33 @@ clearButton.addEventListener('click', () => {
 const equalButton = document.querySelector('.equals');
 
 equalButton.addEventListener('click', () => {
-        console.log('CALCULATE');
-        displayScreen('0');
+
+        memoryNumber(Number(currentNumber));
+        currentNumber='';
+        result=operate(Number(firstNumber),Number(secondNumber), operator);
+        console.log(result)
+        displayScreen(result);
 })
 
 
 
-function operate(firstNumber,secondNumber, operator){
-    switch(operator){
+function operate(a,b, sign){
+    switch(sign){
         case '+':
-            add(firstNumber,secondNumber);
+            result = add(a,b);
             break;
         case '-':
-            substract(firstNumber,secondNumber);
+            result = substract(a,b);
             break;
         case '*':
-            multiply(firstnumber,secondNumber);
+            result = multiply(a,b);
             break;
         case '/':
-            divide(firstNumber,secondNumber);
+            result = divide(a,b);
             break;
     }
+    // firstNumber = result;
+    // secondNumber = '';
+    // currentNumber = '';
+    return result;
 }

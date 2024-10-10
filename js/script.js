@@ -107,13 +107,14 @@ clearButton.addEventListener('click', () => {
         secondNumber = '';
         currentNumber= '';
         operator = '';
+        result = 0;
         displayScreen('0');
 })
 
 const equalButton = document.querySelector('.equals');
 
 equalButton.addEventListener('click', () => {
-
+        
         memoryNumber(Number(currentNumber));
         currentNumber='';
         displayScreen(result);

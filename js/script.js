@@ -26,7 +26,7 @@ let currentNumber='';
 
 
 function displayScreen(screenValue){
-    const screen=document.querySelector('.screen');
+    const screen=document.querySelector('.screentext');
     screen.textContent=screenValue;
 }
 
@@ -36,7 +36,6 @@ numberButtons.forEach((button) => {
         currentNumber = currentNumber.concat(button.textContent);
         displayScreen(currentNumber);
         console.log(currentNumber);
-        
     })
 })
 

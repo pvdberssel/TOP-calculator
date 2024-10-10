@@ -145,9 +145,15 @@ const signButton = document.querySelector('.sign-change')
 
 signButton.addEventListener('click', () => {
         console.log(typeof(currentNumber))
-        currentNumber = operate(Number(currentNumber),-1,'*').toString();
+        if(currentNumber == 0){
+            firstNumber = operate(firstNumber,-1,'*').toString();
+            console.log(firstNumber)
+            displayScreen(firstNumber)    
+        }else{
+        currentNumber = operate(currentNumber,-1,'*').toString();
         console.log(currentNumber)
         displayScreen(currentNumber)
+        }
     
 })
 const equalButton = document.querySelector('.equals');

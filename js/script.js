@@ -17,7 +17,7 @@ function divide(a,b){
 
 let firstNumber = '';
 let secondNumber = '';
-let operator;
+let operator = '';
 let result;
 
 let currentNumber='';
@@ -63,8 +63,24 @@ function deleteNumber(numberString){
 function memoryNumber(number){
     if(firstNumber == ''){
         firstNumber = number;
+    }else if(firstNumber !== '' && secondNumber !== ''){
+        console.log('hello')
+        result=operate(Number(firstNumber),Number(secondNumber), operator);
     }else{
         secondNumber = number;
+        console.log('hello2')
+        result=operate(Number(firstNumber),Number(secondNumber), operator);
+        firstNumber = result;
+        secondNumber = '';
+        displayScreen(result);
+        if(result === 'ʕノ•ᴥ•ʔノ ︵ ┻━┻'){
+            firstNumber = '';
+            secondNumber = '';
+        }else{
+            firstNumber = result;
+            secondNumber = '';
+        }
+
     }
 }
 
@@ -73,8 +89,13 @@ const operatorButton = document.querySelectorAll('.operator');
         button.addEventListener('click', () => {
             memoryNumber(Number(currentNumber));
             currentNumber='';
-            operator = button.textContent;
-            displayScreen(button.textContent);
+            
+            if(operator === ''){
+                displayScreen(button.textContent);
+                operator = button.textContent;
+            }else{
+                operator = button.textContent;    
+            }
         })
     })
 
@@ -85,6 +106,7 @@ clearButton.addEventListener('click', () => {
         firstNumber = '';
         secondNumber = '';
         currentNumber= '';
+        operator = '';
         displayScreen('0');
 })
 
@@ -94,7 +116,6 @@ equalButton.addEventListener('click', () => {
 
         memoryNumber(Number(currentNumber));
         currentNumber='';
-        result=operate(Number(firstNumber),Number(secondNumber), operator);
         displayScreen(result);
         if(result === 'ʕノ•ᴥ•ʔノ ︵ ┻━┻'){
             firstNumber = '';

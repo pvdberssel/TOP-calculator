@@ -53,6 +53,10 @@ button {
     background-color: #c7c7c7;
 }
 
+.decimal:hover{
+    background-color: #c7c7c7;
+}
+
 .large-button {
     width: 200px;
     flex: 2;

@@ -19,8 +19,8 @@ let firstNumber = '';
 let secondNumber = '';
 let operator = '';
 let result;
-
 let currentNumber='';
+let decimalBool = false;
 
 
 
@@ -39,6 +39,20 @@ numberButtons.forEach((button) => {
     })
 })
 
+const decimalButton = document.querySelector('.decimal')
+
+decimalButton.addEventListener('click', () => {
+    console.log('add decimal');
+    addDecimal();
+})
+
+function addDecimal(){
+    if(decimalBool == false){
+        currentNumber = currentNumber.concat('.');
+        displayScreen(currentNumber);
+        decimalBool = true;
+    } 
+}
 
 const delButton = document.querySelector('.del');
 
@@ -50,6 +64,9 @@ delButton.addEventListener('click', () => {
 
 function deleteNumber(numberString){
     if(numberString.length>1){
+        if(numberString.split("").pop() === '.'){
+            decimalBool = false;
+        }
         currentNumber = numberString.slice(0,-1);
         displayScreen(currentNumber);
     }else{
@@ -87,6 +104,7 @@ function memoryNumber(number){
 const operatorButton = document.querySelectorAll('.operator');
     operatorButton.forEach((button) => {
         button.addEventListener('click', () => {
+            decimalBool = false;
             memoryNumber(Number(currentNumber));
             currentNumber='';
             
@@ -107,6 +125,7 @@ clearButton.addEventListener('click', () => {
         secondNumber = '';
         currentNumber= '';
         operator = '';
+        decimalBool = false;
         result = 0;
         displayScreen('0');
 })

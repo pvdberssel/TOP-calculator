@@ -140,6 +140,16 @@ function clearMemory(){
     decimalBool = false;
     result = 0;
 }
+
+const signButton = document.querySelector('.sign-change')
+
+signButton.addEventListener('click', () => {
+        console.log(typeof(currentNumber))
+        currentNumber = operate(Number(currentNumber),-1,'*').toString();
+        console.log(currentNumber)
+        displayScreen(currentNumber)
+    
+})
 const equalButton = document.querySelector('.equals');
 
 equalButton.addEventListener('click', () => {

@@ -12,7 +12,7 @@
 .screentext{
     text-align: right;
     font-size: 80px;
-    font-family: 'Lucida Console', 'Courier New', 'monospace' ,'Helvatica';
+    font-family: monospace ,'Helvatica';
 
 }
 
@@ -22,7 +22,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: 'Lucida Console', 'Courier New', 'monospace' ,'Helvatica';
+    font-family: 'monospace' ,'Helvatica';
 }
 
 .calculator-container {
@@ -47,7 +47,7 @@ button {
     background-color: #EEEEEE;
     border-radius: 7px;
     font-size:32px;
-    font-family: 'Lucida Console', 'Courier New', monospace ,'Helvatica';
+    font-family: monospace ,'Helvatica';
 }
 
 .calculator-number:hover{

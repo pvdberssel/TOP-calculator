@@ -35,9 +35,31 @@ numberButtons.forEach((button) => {
     button.addEventListener('click', () => {
         currentNumber = currentNumber.concat(button.textContent);
         displayScreen(currentNumber);
+        console.log(currentNumber);
         
     })
 })
+
+
+const delButton = document.querySelector('.del');
+
+delButton.addEventListener('click', () => {
+        console.log('click del');
+        deleteNumber(currentNumber);
+    })
+
+
+function deleteNumber(numberString){
+    if(numberString.length>1){
+        currentNumber = numberString.slice(0,-1);
+        displayScreen(currentNumber);
+    }else{
+        currentNumber='';
+        displayScreen('0');
+    }
+    console.log(currentNumber);
+}
+
 
 function memoryNumber(number){
     if(firstNumber == ''){

@@ -1,5 +1,5 @@
 function add(a,b){
-    console.log('adding')
+   
     return a+b;
 }
 
@@ -27,6 +27,15 @@ let decimalBool = false;
 
 function displayScreen(screenValue){
     const screen=document.querySelector('.screentext');
+    if(typeof(screenValue)!=='string'){
+        
+        screenValue=screenValue.toString();
+
+    }
+    if(screenValue.length> 8){
+     
+        screenValue = 'OVERFLOW';
+    }
     screen.textContent=screenValue;
 }
 
@@ -35,14 +44,13 @@ numberButtons.forEach((button) => {
     button.addEventListener('click', () => {
         currentNumber = currentNumber.concat(button.textContent);
         displayScreen(currentNumber);
-        console.log(currentNumber);
+
     })
 })
 
 const decimalButton = document.querySelector('.decimal')
 
 decimalButton.addEventListener('click', () => {
-    console.log('add decimal');
     addDecimal();
 })
 
@@ -57,7 +65,7 @@ function addDecimal(){
 const delButton = document.querySelector('.del');
 
 delButton.addEventListener('click', () => {
-        console.log('click del');
+
         deleteNumber(currentNumber);
     })
 
@@ -73,7 +81,7 @@ function deleteNumber(numberString){
         currentNumber='';
         displayScreen('0');
     }
-    console.log(currentNumber);
+
 }
 
 
@@ -120,15 +128,18 @@ const operatorButton = document.querySelectorAll('.operator');
 const clearButton = document.querySelector('.clear');
 
 clearButton.addEventListener('click', () => {
-        firstNumber = '';
-        secondNumber = '';
-        currentNumber= '';
-        operator = '';
-        decimalBool = false;
-        result = 0;
+        clearMemory();
         displayScreen('0');
 })
 
+function clearMemory(){
+    firstNumber = '';
+    secondNumber = '';
+    currentNumber= '';
+    operator = '';
+    decimalBool = false;
+    result = 0;
+}
 const equalButton = document.querySelector('.equals');
 
 equalButton.addEventListener('click', () => {
@@ -136,7 +147,6 @@ equalButton.addEventListener('click', () => {
         memoryNumber(Number(currentNumber));
         currentNumber='';
         if(result.toString().includes('.')){
-            console.log('Hello there')
             result=parseFloat(result).toFixed(2);
         }
         displayScreen(result);

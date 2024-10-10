@@ -22,6 +22,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    font-family: 'Lucida Console', 'Courier New', 'monospace' ,'Helvatica';
 }
 
 .calculator-container {
@@ -46,7 +47,7 @@ button {
     background-color: #EEEEEE;
     border-radius: 7px;
     font-size:32px;
-    font-family: 'monospace';
+    font-family: 'Lucida Console', 'Courier New', 'monospace' ,'Helvatica';
 }
 
 .calculator-number:hover{

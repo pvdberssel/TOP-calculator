@@ -32,9 +32,12 @@ function displayScreen(screenValue){
         screenValue=screenValue.toString();
 
     }
+ 
     if(screenValue.length> 8){
-     
-        screenValue = 'OVERFLOW';
+        if(screenValue !== 'ʕノ•ᴥ•ʔノ'){
+            screenValue = 'OVERFLOW';
+        }
+        
     }
     screen.textContent=screenValue;
 }
@@ -97,7 +100,7 @@ function memoryNumber(number){
         firstNumber = result;
         secondNumber = '';
         displayScreen(result);
-        if(result === 'ʕノ•ᴥ•ʔノ ︵ ┻━┻'){
+        if(result === 'ʕノ•ᴥ•ʔノ'){
             firstNumber = '';
             secondNumber = '';
         }else{
@@ -166,7 +169,7 @@ equalButton.addEventListener('click', () => {
             result=parseFloat(result).toFixed(2);
         }
         displayScreen(result);
-        if(result === 'ʕノ•ᴥ•ʔノ ︵ ┻━┻'){
+        if(result === 'ʕノ•ᴥ•ʔノ'){
             firstNumber = '';
             secondNumber = '';
         }else{
@@ -190,7 +193,7 @@ function operate(a,b, sign){
             break;
         case '/':
             if(b==0){
-                result = 'ʕノ•ᴥ•ʔノ ︵ ┻━┻';
+                result = 'ʕノ•ᴥ•ʔノ';
             }else{
             result = divide(a,b);
             }

@@ -80,13 +80,12 @@ function deleteNumber(numberString){
 function memoryNumber(number){
     if(firstNumber == ''){
         firstNumber = number;
-    }else if(firstNumber !== '' && secondNumber !== ''){
-        console.log('hello')
-        result=operate(Number(firstNumber),Number(secondNumber), operator);
     }else{
         secondNumber = number;
-        console.log('hello2')
         result=operate(Number(firstNumber),Number(secondNumber), operator);
+        if(result.toString().includes('.')){
+            result=parseFloat(result).toFixed(2);
+        }
         firstNumber = result;
         secondNumber = '';
         displayScreen(result);
@@ -136,6 +135,10 @@ equalButton.addEventListener('click', () => {
         
         memoryNumber(Number(currentNumber));
         currentNumber='';
+        if(result.toString().includes('.')){
+            console.log('Hello there')
+            result=parseFloat(result).toFixed(2);
+        }
         displayScreen(result);
         if(result === 'ʕノ•ᴥ•ʔノ ︵ ┻━┻'){
             firstNumber = '';
